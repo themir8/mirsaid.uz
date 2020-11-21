@@ -19,6 +19,7 @@ class Category(db.Model):
     def get_absolute_url(self):
         return f"/blog/{self.url}/"
 
+        
 
 class Post(db.Model):
     """Посты"""
@@ -70,8 +71,26 @@ class Post(db.Model):
         """Получаем обсолютную ссылку с id для удаления"""
         return f"/mini-admin/edit/{self.category}/{self.id}/"
 
+    def get_tag(self):
+        return self.tag_set.filter(parent__isnull=True)
+
 
     class Meta:
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
+
         
+class Tag(db.Model):
+    """Тег"""
+    name = db.CharField("Тег", max_length=50)
+    parent = db.ForeignKey(
+        'self', verbose_name="Родитель", on_delete=db.SET_NULL, blank=True, null=True
+    )
+    Post = db.ForeignKey(Post, verbose_name="Пост", on_delete=db.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Тег"
+        verbose_name_plural = "Теги"

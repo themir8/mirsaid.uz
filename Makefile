@@ -5,3 +5,6 @@ git:
 
 run: manage.py
 	python manage.py runserver
+
+migrate:
+	python manage.py $m

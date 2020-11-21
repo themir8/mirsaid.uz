@@ -3,7 +3,7 @@ from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-from .models import Post, Category
+from .models import Post, Category, Tag
 
 
 
@@ -15,9 +15,9 @@ class PostAdminForm(forms.ModelForm):
         model = Post
         fields = '__all__'
 
-# class LikeInline(admin.TabularInline):
-#     """Отзывы на странице фильма"""
-#     model = Like
+class TagInline(admin.TabularInline):
+    """Отзывы на странице фильма"""
+    model = Tag
 
 
 @admin.register(Category)
@@ -46,7 +46,7 @@ class PostAdmin(admin.ModelAdmin):
 	search_fields = ('title',)
 	save_as = True
 	readonly_fields = ('date',)
-	# inlines = [LikeInline]
+	inlines = [TagInline]
 	form = PostAdminForm
 
 admin.site.site_title='mirsaid.uz'

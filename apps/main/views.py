@@ -21,7 +21,7 @@ class MainView(View):
     		{'title': 'Основная страница',
             'nav_name': 'Основная страница',
             'post_list': query,
-            'category_list': categories})
+            'category': categories})
 
 
 def Registration(request):
