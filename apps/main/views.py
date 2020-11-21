@@ -7,23 +7,24 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
-from blog.models import Post
+from blog.models import Post, Category
 
 class MainView(View):
     """Основная страница"""
     def get(self, request):
 
     	# Филтруеть посты если пост не черновык то выведёт пост
-    	query = Post.objects.filter(draft=False).order_by('-date')[:3]
-
-    	return render(request, 'main/index.html',
+        query = Post.objects.filter(draft=False).order_by('-date')[:3]
+        categories = Category.objects.all()
+        
+        return render(request, 'main/index.html',
     		{'title': 'Основная страница',
             'nav_name': 'Основная страница',
-            'post_list': query})
+            'post_list': query,
+            'category_list': categories})
 
 
 def Registration(request):
-    print(request.user.is_authenticated)
     if(not request.user.is_authenticated):
         if request.method == 'POST':
             form = UserCreationForm(request.POST)
