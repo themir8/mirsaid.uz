@@ -22,7 +22,22 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
+
             </ul>
+          <ul class="navbar-nav ml-auto">
+              {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                  <h3 class="nav-link text-uppercase">{{request.user.username}}</h3>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="btn btn-outline-dark" href="/signup/">Sign Up<a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-outline-dark" href="/login/">Log in<a>
+                </li>
+              {% endif %}
+          </ul>
           </div>
         </div>
       </nav>
