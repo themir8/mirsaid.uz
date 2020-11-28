@@ -18,6 +18,9 @@ class PostAdminForm(forms.ModelForm):
 class TagInline(admin.TabularInline):
     """Отзывы на странице фильма"""
     model = Tag
+    fieldsets = [
+		(None, {'fields': ['name']}),
+	]
 
 
 @admin.register(Category)

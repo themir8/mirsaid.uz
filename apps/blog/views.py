@@ -4,11 +4,16 @@ from django.views.generic import ListView
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
-from .models import Post, Category
+from .models import Post, Category, Tag
 
 
 
-class BlogView(ListView):
+class TagView:
+    def get_tags(self):
+        return Tag.objects.order_by('-id')
+
+
+class BlogView(TagView, ListView):
     """Основная страница"""
 
     model = Post
@@ -16,7 +21,12 @@ class BlogView(ListView):
     queryset = Post.objects.filter(draft=False).order_by('-date')
 
     # paginate_by = 1
-    paginate_by = 3
+    paginate_by = 6
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(BlogView, self).get_context_data(**kwargs)
+    #     context['tag_list'] = Tag.objects.order_by('-id')
+    #     return context
 
 def detailViewPost(request, category_url, url):
     """Подробный просмотр поста"""
@@ -46,9 +56,3 @@ class CategoriesView(View):
 
         return render(request, 'blog/category.html',
         {'query': query})
-
-def ApiView(request, pk):
-
-    queryset = dict(Post.objects.filter(pk=pk))
-
-    return JsonResponse(queryset)
