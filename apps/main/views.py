@@ -11,12 +11,8 @@ from django.contrib.auth.forms import UserCreationForm
 from blog.models import Post, Category, Tag
 
 
-class TagView:
-    def get_tags(self):
-        return Tag.objects.order_by('-id')
 
-
-class MainView(TagView, View):
+class MainView(View):
     """Основная страница"""
     def get(self, request):
 
@@ -28,8 +24,8 @@ class MainView(TagView, View):
     		{'title': 'Основная страница',
             'nav_name': 'Основная страница',
             'post_list': query,
-            'category': categories})
-            # 'tag_list': Tag.objects.order_by('-id')})
+            'category': categories,
+            'get_tags': Tag.objects.order_by('-id')})
 
 
 def Registration(request):

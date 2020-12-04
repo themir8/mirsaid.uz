@@ -58,18 +58,13 @@ WSGI_APPLICATION = 'siteengine.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mir_db',
+        'USER' : 'mirzohidov',
+        'PASSWORD' : 'coder',
+        'HOST' : '127.0.0.1',
+        'PORT' : '6432',
     }
-
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'blog',
-    #     'USER' : 'mirsaid_pg',
-    #     'PASSWORD' : 'coder',
-    #     'HOST' : '127.0.0.1',
-    #     'PORT' : '6432',
-    # }
 }
 
 

@@ -15,10 +15,12 @@ body {
 }
 p {
 	margin-bottom: 0px;
-	font-size: 15px;
-	font-weight: 400;
-	color: #7a7a7a;
+	font-size: 16px;
+	font-weight: 395;
+	color: #222;
+	/*color: #7a7a7a;*/
 	line-height: 30px;
+	font-family: "-apple-system",BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 a {
 	text-decoration: none!important;
@@ -475,9 +477,9 @@ header .navbar {
 
 .blog-posts .down-content p {
 	padding: 25px 0px;
-	margin: 25px 0px;
-	border-top: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+	/*margin: 25px 0px;*/
+	/*border-top: 1px solid #eee;*/
+	/*border-bottom: 1px solid #eee;*/
 }
 
 .blog-posts .down-content ul.post-share {

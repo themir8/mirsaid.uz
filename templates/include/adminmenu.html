@@ -1,0 +1,33 @@
+<!-- Split dropup button -->
+<div class="w-25 p-5 btn-group dropup fixed-bottom">
+  <a 
+    href="/admin/" 
+    class="btn btn-secondary text-dark" 
+    style="background: rgba(122, 117, 117, 0.36)">
+    
+    Admin panel
+
+  </a>
+  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: rgba(122, 117, 117, 0.36)">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a href="/admin/blog/post/add/" class="dropdown-item">Add post</a>
+    <a href="/admin/blog/category/add/" class="dropdown-item">Add category</a>
+    <div class="btn-group dropright">
+      <button type="button" 
+        class="btn btn-secondary dropdown-toggle text-dark" 
+        data-toggle="dropdown" aria-haspopup="true" 
+        aria-expanded="false" 
+        style="background: rgba(122, 117, 117, 0.36)">
+          Change
+          <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+      <a href="/admin/blog/post/add/" class="dropdown-item">Add post</a>
+      <a href="/admin/blog/category/add/" class="dropdown-item">Add category</a>
+    </div>
+    
+  </div>
+</div>
+</div>

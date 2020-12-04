@@ -54,10 +54,15 @@
   </div>
   <div class="content">
       <ul>
-        {% for tag in view.get_tags %}
-        <li><a href="#">{{ tag.name }}</a></li>
-        {% endfor %}
-        
+        {% if view.get_tags != None %}
+          {% for tag in view.get_tags %}
+            <li><a href="#">{{ tag.name }}</a></li>
+          {% endfor %}
+        {% else %}
+          {% for tag in get_tags %}
+            <li><a href="#">{{ tag.name }}</a></li>
+          {% endfor %}
+        {% endif %}
     </ul>
 </div>
 </div>
