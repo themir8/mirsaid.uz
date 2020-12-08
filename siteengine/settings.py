@@ -59,11 +59,11 @@ WSGI_APPLICATION = 'siteengine.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mir_db',
-        'USER' : 'mirzohidov',
-        'PASSWORD' : 'coder',
-        'HOST' : '127.0.0.1',
-        'PORT' : '6432',
+        'NAME': os.getenv("DB_NAME", 'mir_db'),
+        'USER' : os.getenv("DB_USER", 'mirzohidov'),
+        'PASSWORD' : os.getenv("DB_PASS", 'coder'),
+        'HOST' : os.getenv("DB_HOST", '127.0.0.1'),
+        'PORT' : os.getenv("DB_PORT", '6432'),
     }
 }
 
