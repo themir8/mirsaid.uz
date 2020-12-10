@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from .models import Post, Category, Tag
 
 
+class TagAdmin(admin.ModelAdmin):
+    pass
+
 
 class PostAdminForm(forms.ModelForm):
     """Форма с виджетом ckeditor"""
@@ -15,12 +18,6 @@ class PostAdminForm(forms.ModelForm):
         model = Post
         fields = '__all__'
 
-class TagInline(admin.TabularInline):
-    """Отзывы на странице фильма"""
-    model = Tag
-    fieldsets = [
-		(None, {'fields': ['name']}),
-	]
 
 
 @admin.register(Category)
@@ -33,15 +30,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-	# fieldsets = [
-	# 	# (None, {'fields': ['title', 'intro', 'text']}),
-	# 	('Post title', {'fields': ['title']}),
-	# 	('Post intro', {'fields': ['intro']}),
-	# 	('Post text', {'fields': ['text']}),
-	# 	('Post draft', {'fields': ['draft']}),
-	# 	('Date information', {'fields': ['date']}),
-	# ]
-	"""docstring for PostAdmin"""
 	list_display = ('id', 'title', 'draft', 'date')
 	list_display_links = ('title',)
 	list_filter = ('date', 'draft')
@@ -49,8 +37,10 @@ class PostAdmin(admin.ModelAdmin):
 	search_fields = ('title',)
 	save_as = True
 	readonly_fields = ('date',)
-	inlines = [TagInline]
 	form = PostAdminForm
+
+
+admin.site.register(Tag, TagAdmin)
 
 admin.site.site_title='mirsaid.uz'
 admin.site.site_header='mirsaid.uz'

@@ -77,13 +77,9 @@ MM | Main {{el.title}}
                         <div class="col-6">
                           <ul class="post-tags">
                             <li><i class="fa fa-tags"></i></li>
-                            {% for tag in el.get_tag %}
-                              {% if tag.length > 1 %}
-                                <li><a href="#">{{ tag.name }}</a>,</li>
-                              {% else %}
-                                <li><a href="#">{{ tag.name }}</a></li>
-                              {% endif %}
-                            {% endfor %}
+                            {% for tag in el.GetTags %}
+                                    <li><a href="#">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}</li>
+                                {% endfor %}
                           </ul>
                         </div>
                         <div class="col-6">

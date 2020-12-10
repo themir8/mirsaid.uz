@@ -33,7 +33,7 @@ def detailViewPost(request, category_url, url):
 
 	# получает обект
     post = Post.objects.get(url=url)
-
+    
     query = Post.objects.filter(draft=False).order_by('-date')[:6]
 
     categories = Category.objects.all()
@@ -43,8 +43,7 @@ def detailViewPost(request, category_url, url):
 		'title': 'Подробный просмотр поста',
         'post_list': query,
         'category': categories,
-        'nav_name': post.title,
-        'get_tags': Tag.objects.order_by('-id')})
+        'nav_name': post.title})
 
     if request.method == 'POST':
         review = Reviews(

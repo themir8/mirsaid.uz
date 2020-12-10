@@ -94,8 +94,8 @@ MM | Main
                             <div class="col-6">
                               <ul class="post-tags">
                                 <li><i class="fa fa-tags"></i></li>
-                                {% for tag in el.get_tag %}
-                                  <li><a href="#">{{ tag.name }}</a>,</li>
+                                {% for tag in el.GetTags %}
+                                    <li><a href="#">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}</li>
                                 {% endfor %}
                                 <!-- <li><a href="#">Nature</a></li> -->
                               </ul>

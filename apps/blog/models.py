@@ -2,6 +2,23 @@ from django.db import models as db
 from django.contrib.auth.admin import User
 from django.utils import timezone
 
+
+class Tag(db.Model):
+    name = db.CharField(max_length=30, verbose_name='Name')
+    slug = db.SlugField(max_length=50, default='', blank=False)
+
+    class Meta:
+        verbose_name = 'Tags'
+        verbose_name_plural = verbose_name
+        ordering = ['-id']
+
+    def __str__(self):
+        return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse('blog:tag', kwargs={'slug': self.slug})
+
+
 class Category(db.Model):
     """Категория"""
     name = db.CharField("Категория", max_length=50)
@@ -35,6 +52,7 @@ class Post(db.Model):
     category = db.ForeignKey(
         Category, verbose_name = "Категория", on_delete=db.SET_NULL, null=True
     )
+    tag = db.ManyToManyField(Tag, verbose_name='Tags')
 
     date = db.DateTimeField("Дата", default=timezone.now)
 
@@ -49,8 +67,7 @@ class Post(db.Model):
         """Получаем обсолютную ссылку""" 
         return f"/blog/{self.category}/{self.url}/"
 
-    def filename(self):
-        return self.url
+
 
     # def get_review(self):
     #     return self.reviews_set.filter(parent__isnull=True)
@@ -71,26 +88,11 @@ class Post(db.Model):
         """Получаем обсолютную ссылку с id для удаления"""
         return f"/mini-admin/edit/{self.category}/{self.id}/"
 
-    def get_tag(self):
-        return self.tag_set.filter(parent__isnull=True)
+    def GetTags(self):
+        # get all Tag objects for this Article.
+        return Post.objects.get(id=self.id).tag.all()
 
 
     class Meta:
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
-
-        
-class Tag(db.Model):
-    """Тег"""
-    name = db.CharField("Тег", max_length=50)
-    parent = db.ForeignKey(
-        'self', verbose_name="Родитель", on_delete=db.SET_NULL, blank=True, null=True
-    )
-    Post = db.ForeignKey(Post, verbose_name="Пост", on_delete=db.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = "Тег"
-        verbose_name_plural = "Теги"
