@@ -55,10 +55,8 @@ def detailViewPost(request, category_url, url):
 
         return redirect(post.get_absolute_url)
 
-class CategoriesView(View):
-    def get(self, request, url):
-        # получает обект
-        query = Category.objects.filter(url=url)
-
-        return render(request, 'blog/category.html',
-        {'query': query})
+class CategoriesView(ListView):
+    
+    model = Category
+    # Филтруеть посты если пост не черновык то выведёт пост
+    queryset = Category.objects.order_by('-id')
