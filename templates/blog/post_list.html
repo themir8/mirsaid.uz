@@ -67,7 +67,11 @@ MM | Blog
                         <span>{{ el.category.name }}</span>
                         <a href="{{ el.get_absolute_url }}"><h4>{{ el.title }}</h4></a>
                         <ul class="post-info">
-                          <li><a href="#">{{ el.author.first_name }}</a></li>
+                          {% if el.author.first_name != "" %}
+                            <li><a href="#">{{ el.author.first_name }}</a></li>
+                          {% else %}
+                            <li><a href="#">{{ el.author }}</a></li>
+                          {% endif %}
                           <li><a href="#">{{ el.date|date:"j-F, Y" }}</a></li>
                         </ul>
                           <p>{{ el.intro }}</p>
@@ -76,8 +80,8 @@ MM | Blog
                               <div class="col-lg-12">
                                 <ul class="post-tags">
                                   <li><i class="fa fa-tags"></i></li>
-                                  {% for tag in el.get_tag %}
-                                    <li><a href="#">{{ tag.name }}</a>,</li>
+                                  {% for tag in el.GetTags %}
+                                    <li><a href="{% url 'tag' %}?q={{tag.name}}">{{ tag.name }}</a>{% if not forloop.last %},{% endif %}</li>
                                   {% endfor %}
                                 </ul>
                               </div>

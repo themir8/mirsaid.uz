@@ -66,12 +66,23 @@ def LoginView(request):
 
 
 class Search(ListView):
-    """Поиск фильмов"""
     paginate_by = 3
 
     def get_queryset(self):
         return Post.objects.filter(
             title__icontains=self.request.GET.get("q"))
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context["q"] = f'q={self.request.GET.get("q")}&'
+        return context
+
+class QTag(ListView):
+    paginate_by = 3
+
+    def get_queryset(self):
+        return Post.objects.filter(
+            tag__name__icontains=self.request.GET.get("q"))
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

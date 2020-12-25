@@ -65,7 +65,7 @@ class Post(db.Model):
 
     def get_absolute_url(self):
         """Получаем обсолютную ссылку""" 
-        return f"/blog/{self.category}/{self.url}/"
+        return f"/blog/post/{self.category}/{self.url}/"
 
 
 
