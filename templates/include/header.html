@@ -29,6 +29,10 @@
                 <li class="nav-item">
                   <h3 class="nav-link text-uppercase">{{request.user.username}}</h3>
                 </li>
+                <li class="nav-item">
+                  <h3 class="nav-link text-uppercase"><a href="logout" title="log out">🚪</a></h3>
+                </li>
+                
               {% else %}
                 <li class="nav-item">
                   <a class="btn btn-outline-dark" href="/signup/">Sign Up<a>
