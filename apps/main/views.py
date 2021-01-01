@@ -28,7 +28,7 @@ class MainView(View):
         get_client_ip(request)
 
     	# Филтруеть посты если пост не черновык то выведёт пост
-        query = Post.objects.filter(draft=False).order_by('-date')[:3]
+        query = Post.objects.filter(draft=False).order_by('-date')
         categories = Category.objects.all()
         
         return render(request, 'main/index.html',
@@ -77,7 +77,7 @@ def LoginView(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('%s?next=logout' % (request.path))
+    return redirect('/')
 
 class Search(ListView):
     paginate_by = 3
