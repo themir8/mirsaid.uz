@@ -32,9 +32,9 @@
   </div>
   <div class="content">
       <ul>
-        {% if category|length > 0 %}
+        {% if view.category|length > 0 %}
 
-        {% for el in category %}
+        {% for el in view.category %}
         <li><a href="{{ el.get_absolute_url }}">- {{ el.name }}</a></li>
         {% endfor %}
 

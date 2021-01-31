@@ -1,5 +1,5 @@
 # from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from blog.views import BlogView, detailViewPost, CategoriesView
 from main.views import Search, QTag
 

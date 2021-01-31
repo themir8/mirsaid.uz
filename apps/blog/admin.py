@@ -3,16 +3,19 @@ from django.contrib import admin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
+from modeltranslation.admin import TranslationAdmin
 from .models import Post, Category, Tag
 
 
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(TranslationAdmin):
     pass
 
 
 class PostAdminForm(forms.ModelForm):
     """Форма с виджетом ckeditor"""
-    text = forms.CharField(label="Описание", widget=CKEditorUploadingWidget())
+    text_ru = forms.CharField(label="Описание [ru]", widget=CKEditorUploadingWidget())
+    text_en = forms.CharField(label="Описание [en]", widget=CKEditorUploadingWidget())
+    text_uz = forms.CharField(label="Описание [uz]", widget=CKEditorUploadingWidget())
 
     class Meta:
         model = Post
@@ -21,7 +24,7 @@ class PostAdminForm(forms.ModelForm):
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TranslationAdmin):
 	"""docstring for PostAdmin"""
 	list_display = ('id', 'name', 'url')
 	list_display_links = ('name',)
@@ -29,7 +32,7 @@ class CategoryAdmin(admin.ModelAdmin):
 	save_as = True
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
 	list_display = ('id', 'title', 'draft', 'date')
 	list_display_links = ('title',)
 	list_filter = ('date', 'draft')

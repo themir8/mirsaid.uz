@@ -12,8 +12,12 @@ class TagView:
     def get_tags(self):
         return Tag.objects.order_by('-id')
 
+class CategoryView:
+    def category(self):
+        return Category.objects.all()
 
-class BlogView(TagView, ListView):
+
+class BlogView(TagView, CategoryView, ListView):
     """Основная страница"""
 
     model = Post
@@ -30,6 +34,8 @@ class BlogView(TagView, ListView):
 
 def detailViewPost(request, category_url, url):
     """Подробный просмотр поста"""
+
+    print(request.META['REMOTE_ADDR'])
 
 	# получает обект
     post = Post.objects.get(url=url)

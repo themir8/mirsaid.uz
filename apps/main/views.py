@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from blog.models import Post, Category, Tag
+from django.utils.translation import gettext
 
 
 def get_client_ip(request):
@@ -31,8 +32,10 @@ class MainView(View):
         query = Post.objects.filter(draft=False).order_by('-date')
         categories = Category.objects.all()
         
+        output = gettext("Welcome to my site")
+
         return render(request, 'main/index.html',
-    		{'title': 'Основная страница',
+    		{'title': output,
             'nav_name': 'Основная страница',
             'post_list': query,
             'category': categories,
