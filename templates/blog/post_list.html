@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
 MM | Blog
@@ -15,8 +15,8 @@ MM | Blog
           <div class="row">
             <div class="col-lg-12">
               <div class="text-content">
-                <h4>Recent Posts</h4>
-                <h2>Our Recent Blog Entries</h2>
+                <h4>{% translate "Recent Posts" %}</h4>
+                <h2>{% translate "Our Recent Blog Entries" %}</h2>
               </div>
             </div>
           </div>
@@ -33,12 +33,12 @@ MM | Blog
             <div class="main-content">
               <div class="row">
                 <div class="col-lg-8">
-                  <span>MIRSAID.UZ web fullstack courses</span>
-                  <h4>Creative Front-end and back-end courses for you!</h4>
+                  <span>{% translate "MIRSAID.UZ web fullstack courses" %}</span>
+                  <h4>{% translate "Creative Front-end and back-end courses for you!" %}</h4>
                 </div>
                 <div class="col-lg-4">
                   <div class="main-button">
-                    <a href="https://templatemo.com/tm-551-stand-blog" target="_parent">Start free trial!</a>
+                    <a href="https://templatemo.com/tm-551-stand-blog" target="_parent">{% translate "Start free trial!" %}</a>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ MM | Blog
 
                   {% else %}
                       <div class="col-lg-12">
-                          <h1 class="font-weight-bold">No posts</h1>
+                          <h1 class="font-weight-bold">{% translate "No posts" %}</h1>
                       </div>
                   {% endif %}
 

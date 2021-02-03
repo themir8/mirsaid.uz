@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static i18n %}
+{% load humanize %}
 
 {% block title %}
-MM | Main
+MM | Main page
 {% endblock title %}
 
 {% block body %}
@@ -29,7 +30,7 @@ MM | Main
                     {% else %}
                       <li><a href="#">{{ el.author }}</a></li>
                     {% endif %}
-                      <li><a href="#">{{ el.date|date:"j-F, Y" }}</a></li>
+                      <li><a href="#">{{ el.date|timesince }} ago</a></li>
                     <li><a href="#">12 Comments</a></li>
                   </ul>
                 </div>
@@ -39,7 +40,7 @@ MM | Main
 
         {% else %}
         <div class="col-lg-12">
-            <h1 class="font-weight-bold">No posts</h1>
+            <h1 class="font-weight-bold">{% translate "No posts" %}</h1>
         </div>
         {% endif %}
         </div>
@@ -54,12 +55,12 @@ MM | Main
             <div class="main-content">
               <div class="row">
                 <div class="col-lg-8">
-                  <span>MIRSAID.UZ web fullstack courses</span>
-                  <h4>Creative Front-end and back-end courses for you!</h4>
+                  <span>{% translate "MIRSAID.UZ web fullstack courses" %}</span>
+                  <h4>{% translate "Creative Front-end and back-end courses for you!" %}</h4>
                 </div>
                 <div class="col-lg-4">
                   <div class="main-button">
-                    <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">Start free trial!</a>
+                    <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">{% translate "Start free trial!" %}</a>
                   </div>
                 </div>
               </div>
@@ -93,7 +94,7 @@ MM | Main
                           {% else %}
                             <li><a href="#">{{ el.author }}</a></li>
                           {% endif %}
-                          <li><a href="#">{{ el.date|date:"j-F, Y" }}</a></li>
+                          <li><a href="#">{{ el.date|timesince }} ago</a></li>
                           <!-- <li><a href="#">12 Comments</a></li> -->
                         </ul>
                         <p>{{ el.intro }}</p>
@@ -124,13 +125,13 @@ MM | Main
 
               {% else %}
                   <div class="col-lg-12">
-                      <h1 class="font-weight-bold">No posts</h1>
+                      <h1 class="font-weight-bold">{% translate "No posts" %}</h1>
                   </div>
               {% endif %}
                 
                 <div class="col-lg-12">
                   <div class="main-button">
-                    <a href="/blog/">View All Posts</a>
+                    <a href="/blog/">{% translate "View All Posts" %}</a>
                   </div>
                 </div>
               </div>

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'miniadmin.apps.MiniadminConfig',
     # 'donat.apps.DonatConfig',
     'course.apps.CourseConfig',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

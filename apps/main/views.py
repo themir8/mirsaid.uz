@@ -1,4 +1,3 @@
-from django import forms
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.views.generic import ListView
@@ -10,35 +9,32 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from blog.models import Post, Category, Tag
-from django.utils.translation import gettext
 
 
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return print(ip)
+# def get_client_ip(request):
+#     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+#     if x_forwarded_for:
+#         ip = x_forwarded_for.split(',')[0]
+#     else:
+#         ip = request.META.get('REMOTE_ADDR')
+#     return print(ip)
 
 
 class MainView(View):
     """Основная страница"""
     def get(self, request):
 
-        get_client_ip(request)
+        # get_client_ip(request)
 
     	# Филтруеть посты если пост не черновык то выведёт пост
         query = Post.objects.filter(draft=False).order_by('-date')
         categories = Category.objects.all()
         
-        output = gettext("Welcome to my site")
 
         return render(request, 'main/index.html',
-    		{'title': output,
-            'nav_name': 'Основная страница',
+    		{'nav_name': 'Основная страница',
             'post_list': query,
-            'category': categories,
+            'view': {'category': categories},
             'get_tags': Tag.objects.order_by('-id')})
 
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
 MM | Main {{el.title}}
@@ -33,12 +33,12 @@ MM | Main {{el.title}}
         <div class="main-content">
           <div class="row">
             <div class="col-lg-8">
-              <span>MIRSAID.UZ web fullstack courses</span>
-              <h4>Creative Front-end and back-end courses for you!</h4>
+              <span>{% translate "MIRSAID.UZ web fullstack courses" %}</span>
+              <h4>{% translate "Creative Front-end and back-end courses for you!" %}</h4>
             </div>
             <div class="col-lg-4">
               <div class="main-button">
-                <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">Start free trial!</a>
+                <a rel="nofollow" href="https://templatemo.com/tm-551-stand-blog" target="_parent">{% translate "Start free trial!" %}</a>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ MM | Main {{el.title}}
                     {% else %}
                       <li><a href="#">{{ el.author }}</a></li>
                     {% endif %}
-                    <li><a href="#">{{ el.date|date:"j-F, Y" }}</a></li>
+                    <li><a href="#">{{ el.date|timesince }}</a></li>
                   </ul>
                   <p>{{ el.text|safe }}</p>
                     <div class="post-options">

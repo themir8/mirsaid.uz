@@ -27,7 +27,7 @@
             </ul>
           <ul class="navbar-nav ml-auto">
               <li class="nav-item"> 
-                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <!-- <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
                           <input name="next" type="hidden" value="{{ redirect_to }}">
                           <select name="language" class="form-control">
                               {% get_current_language as LANGUAGE_CODE %}
@@ -40,25 +40,36 @@
                                   </option>
                               {% endfor %}
                           </select>
-                          <input type="submit" value="Go">
-                      </form>
+                          <input type="submit" class="btn btn-outline-secondary" value="Go">
+                      </form> -->
+                <div class="main-button">
+                    <a rel="nofollow" href="/uz/" target="_parent">uz</a>
+                    <a rel="nofollow" href="/ru/" target="_parent">ru</a>
+                    <a rel="nofollow" href="/en/" target="_parent">en</a>
+                  </div>
               </li>
               {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                  <h3 class="nav-link text-uppercase">{{request.user.username}}</h3>
+                  <h3 class="nav-link">{{request.user.username}}</h3>
                 </li>
                 <li class="nav-item">
-                  <h3 class="nav-link text-uppercase"><a href="logout" title="log out">🚪</a></h3>
+                  <h3 class="nav-link text-uppercase"><a href="/logout/" title="log out">🚪</a></h3>
                 </li>
+
                 
               {% else %}
                 <li class="nav-item">
-                  <a class="btn btn-outline-dark" href="/signup/">Sign Up</a>
+                  <a class="btn btn-outline-dark" href="/signup/">{% translate "Sign Up" %}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="btn btn-outline-dark" href="/login/">Log in</a>
+                  <a class="btn btn-outline-dark" href="/login/">{% translate "Log in" %}</a>
                 </li>
               {% endif %}
+            {% if request.user.is_authenticated and request.user.is_superuser %}
+                <li class="nav-item">
+                  <h3 class="nav-link"><a href="/admin/">👨‍💻</a></h3>
+                </li>
+            {% endif %}
 
           </ul>
           </div>
