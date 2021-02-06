@@ -54,7 +54,7 @@ class Post(db.Model):
     )
     tag = db.ManyToManyField(Tag, verbose_name='Tags')
 
-    ip = db.CharField(max_length=100, verbose_name='Ip')
+    ip = db.CharField(max_length=100, verbose_name='Ip', null=True)
 
     date = db.DateTimeField("Дата", default=timezone.now)
 
