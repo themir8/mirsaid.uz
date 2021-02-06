@@ -1,5 +1,5 @@
-# mirsaid.uz Version 003
-Site project on Python Django
+# mirsaid.uz
+Project on Python Django
 
 ```
 export DB_NAME=""
