@@ -13,7 +13,7 @@ sys.path.append(os.path.join(BASE_DIR, "apps"))
 SECRET_KEY = ')_#@!1k+^zrib27akfq!7jvika^g*3im@d=1386ipn^$kjxll='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mirsaid.herokuapp.com', 'mirsaid.uz', '127.0.0.1']
 
