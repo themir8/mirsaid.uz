@@ -1,4 +1,4 @@
-*.js linguist-language=Python
 *.html linguist-language=Python
+*.js linguist-language=Python
 static/* linguist-vendored
 jquery.js linguist-vendored=false
