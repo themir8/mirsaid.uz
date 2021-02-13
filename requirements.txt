@@ -11,8 +11,12 @@ django-js-asset==1.2.2
 django-modeltranslation==0.16.1
 gunicorn==20.0.4
 idna==2.10
+<<<<<<< HEAD
 maxminddb==2.0.3
 multidict==5.1.0
+=======
+psycopg2-binary==2.8.6
+>>>>>>> cc5ac56abff4cef70fc817eeb3193018374ad8bb
 pytz==2020.1
 requests==2.24.0
 six==1.15.0
