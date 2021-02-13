@@ -66,7 +66,9 @@ python manage.py runserver
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+
 
 There are many great README templates available on GitHub, however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
 
@@ -178,11 +180,10 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forks/roshanlam/ReadMeTemplate?style=for-the-badge
-[forks-url]: https://github.com/roshanlam/ReadMeTemplate/network/members
-[stars-shield]: https://img.shields.io/github/stars/roshanlam/ReadMeTemplate?style=for-the-badge
-[stars-url]: https://github.com/roshanlam/ReadMeTemplate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/roshanlam/ReadMeTemplate?style=for-the-badge
-[issues-url]: https://github.com/roshanlam/ReadMeTemplate/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/roshan-lamichhane
+[forks-shield]: https://img.shields.io/github/forks/mirsaid-mirzohidov/mirsaid.uz?style=for-the-badge
+[forks-url]: https://github.com/mirsaid-mirzohidov/mirsaid.uz/network/members
+[stars-shield]: https://img.shields.io/github/stars/mirsaid-mirzohidov/mirsaid.uz?style=for-the-badge
+[stars-url]: https://github.com/mirsaid-mirzohidov/mirsaid.uz/stargazers
+[issues-shield]: https://img.shields.io/github/issues/mirsaid-mirzohidov/mirsaid.uz?style=for-the-badge
+[issues-url]: https://github.com/mirsaid-mirzohidov/mirsaid.uz/issues
+
