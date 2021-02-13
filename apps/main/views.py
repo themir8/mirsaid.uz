@@ -18,14 +18,12 @@ def get_client_ip(request):
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
-    return ip
+    return Visitor(ip=ip, url=request.path).save()
 
 
 class MainView(View):
     """Основная страница"""
     def get(self, request):
-
-        print(get_client_ip(request))
 
     	# Филтруеть посты если пост не черновык то выведёт пост
         query = Post.objects.filter(draft=False).order_by('-date')

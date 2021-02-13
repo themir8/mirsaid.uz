@@ -5,6 +5,7 @@ from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
 from .models import Post, Category, Tag
+from main.views import get_client_ip
 
 
 
@@ -43,6 +44,8 @@ def detailViewPost(request, category_url, url):
     query = Post.objects.filter(draft=False).order_by('-date')[:6]
 
     categories = Category.objects.all()
+
+    get_client_ip(request)
 
     return render(request, 'blog/post.html',
         {'el': post,
