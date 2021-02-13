@@ -8,7 +8,6 @@ from .models import Post, Category, Tag
 from main.views import get_client_ip
 
 
-
 class TagView:
     def get_tags(self):
         return Tag.objects.order_by('-id')
@@ -35,8 +34,8 @@ class BlogView(TagView, CategoryView, ListView):
 
 def detailViewPost(request, category_url, url):
     """Подробный просмотр поста"""
-
-    print(request.META['REMOTE_ADDR'])
+    # location = request.geolocation
+    # print(location)
 
 	# получает обект
     post = Post.objects.get(url=url)

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+<!-- {% load static i18n %} -->
+<!-- {% load humanize %} -->
+
+{% block title %}
+@{{ user.username }}
+{% endblock title %}
+
+{% block body %}
+<div class="container pt-5 col-lg-8">
+	<h1 class="pt-5 text-center">
+		About you
+	</h1>
+	<form method="post">
+		{% csrf_token %}
+		<label for="username">Username</label>
+		<input type="text" name="username" placeholder="Username" value="{{ user.username }}" class="form-control mb-3">
+
+		<div class="form-row">
+			<div class="col-md-6 mb-3">
+				<label for="firstname">First name</label>
+				<input type="text" class="form-control" id="firstname" value="{{ user.firstname }}">
+			</div>
+			<div class="col-md-6 mb-3">
+				<label for="lastname">Last name</label>
+				<input type="text" class="form-control" id="lastname" value="{{ user.lastname }}">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-md-7 mb-3">
+				<label for="bio">Bio</label>
+				<textarea class="form-control" id="bio" rows="7">{{ user.profile.bio }}</textarea>
+			</div>
+			<div class="col-md-5 mb-3">
+				<label for="address">Address</label>
+				<input type="text" class="form-control" id="address">
+
+				<label for="start" class="mt-4 ml-5 col-form-label">Start date:</label>
+				<input type="date" id="start" name="trip-start"
+				value="{{ user.profile.birth_date }}"
+				min="1950-01-01" max="2015-12-31" class="form-control col-md-6 ml-5">
+			</div>
+		</div>
+		<div class="main-button">
+		<a href="" class="float-right" type="submit">Submit form</a>
+		</div>
+	</form>
+</div>
+
+
+{% endblock body %}

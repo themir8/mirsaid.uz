@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from blog.models import Post, Category, Tag
 from main.models import Visitor
 
-
+   
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
@@ -23,11 +23,13 @@ def get_client_ip(request):
 
 class MainView(View):
     """Основная страница"""
+
     def get(self, request):
 
     	# Филтруеть посты если пост не черновык то выведёт пост
         query = Post.objects.filter(draft=False).order_by('-date')
         categories = Category.objects.all()
+       
         
 
         return render(request, 'main/index.html',
