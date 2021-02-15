@@ -26,18 +26,44 @@
   </p>
 </p>
 
+### Tech
+Requirements:
+ * [Python] +3.5 - Python object oriented programming language
 
+We use:
+
+* [Django] - is a high-level Python Web framework
+
+
+## Installation
+
+### Project
+
+```sh
+$ mkdir myproject && cd myproject
+$ git clone https://github.com/mirsaid-mirzohidov/mirsaid.uz.git .
+$ virtualenv -p /usr/bin/python3 .venv
+$ source .venv/bin/activate
+$ pip install -r requirements.txt
+$ python manage.py migrate
 ```
-export DB_NAME=""
-export DB_USER=""
-export DB_PASS=""
-export DB_HOST=""
-export DB_PORT=""
+
+
+### Run
+```sh
+$ python manage.py runserver
 ```
+or
+```sh
+$ make run
 ```
-pip install -r requirements.txt
-python manage.py runserver
-```
+
+### View
+Api http://localhost:8000/
+
+
+[Python]: <https://www.python.org/>
+[Django]: <https://www.djangoproject.com/>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
