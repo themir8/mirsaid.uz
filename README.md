@@ -11,7 +11,7 @@
     <img src="./logo.ico" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Project texnoblog on Django3</h3>
+  <h3 align="center">mirsaid.uz texnoBlog</h3>
 
   <p align="center">
     Project texnoblog on Django3
