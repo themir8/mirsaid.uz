@@ -11,10 +11,10 @@
     <img src="./logo.ico" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Mirsaid.uz blog project</h3>
+  <h3 align="center">Project texnoblog on Django3</h3>
 
   <p align="center">
-    Mirsaid.uz blog project on Django
+    Project texnoblog on Django3
     <br />
     <a href="https://mirsaiduz.pythonanywhere.com/">View Demo</a>
     ·
