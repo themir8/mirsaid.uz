@@ -30,10 +30,11 @@
 Requirements:
  * [Python] +3.5 - Python object oriented programming language
 
-<<<<<<< HEAD
+
 ```sh
 pip install -r requirements.txt
 python manage.py runserver
+```
 =======
 We use:
 
@@ -58,14 +59,9 @@ $ python manage.py migrate
 ```sh
 $ python manage.py runserver
 ```
-or
-```sh
-$ make run
->>>>>>> 8ac6965336a8f83e13d75d09d859c9bf868c7085
-```
 
 ### View
-Api http://localhost:8000/
+http://localhost:8000/
 
 
 [Python]: <https://www.python.org/>
