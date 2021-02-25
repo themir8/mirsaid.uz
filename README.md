@@ -33,7 +33,6 @@ python manage.py runserver
 ```
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [forks-shield]: https://img.shields.io/github/forks/mirsaid-mirzohidov/mirsaid.uz?style=for-the-badge
 [forks-url]: https://github.com/mirsaid-mirzohidov/mirsaid.uz/network/members
 [stars-shield]: https://img.shields.io/github/stars/mirsaid-mirzohidov/mirsaid.uz?style=for-the-badge
