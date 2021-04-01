@@ -52,7 +52,7 @@ def Registration(request):
             'form': form,
             })
     else:
-       return HttpResponseRedirect("/") 
+       return HttpResponseRedirect("/")
 
 
 def LoginView(request):
